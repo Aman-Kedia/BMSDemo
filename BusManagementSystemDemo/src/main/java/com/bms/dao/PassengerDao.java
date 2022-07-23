@@ -1,4 +1,4 @@
-package com.bms.controller;
+package com.bms.dao;
 
 import java.util.List;
 
