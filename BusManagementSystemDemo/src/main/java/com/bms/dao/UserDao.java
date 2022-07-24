@@ -16,5 +16,5 @@ public interface UserDao {
 
 	List<Booking> viewAllPreviousBookings();
 
-	boolean login(String emailId, String password);
+	boolean login(String email, String password);
 }
