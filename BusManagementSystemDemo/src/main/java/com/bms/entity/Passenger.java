@@ -35,4 +35,85 @@ public class Passenger {
 	@JoinColumn(name = "busId")
 	Bus bus;
 
+	public int getPassengerId() {
+		return passengerId;
+	}
+
+	public void setPassengerId(int passengerId) {
+		this.passengerId = passengerId;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public LocalDate getDateOfBirth() {
+		return dateOfBirth;
+	}
+
+	public void setDateOfBirth(LocalDate dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
+
+	public String getPhoneNo() {
+		return phoneNo;
+	}
+
+	public void setPhoneNo(String phoneNo) {
+		this.phoneNo = phoneNo;
+	}
+
+	public String getEmailId() {
+		return emailId;
+	}
+
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
+	}
+
+	public String getSeatNo() {
+		return seatNo;
+	}
+
+	public void setSeatNo(String seatNo) {
+		this.seatNo = seatNo;
+	}
+
+	public LocalDate getTravelDate() {
+		return travelDate;
+	}
+
+	public void setTravelDate(LocalDate travelDate) {
+		this.travelDate = travelDate;
+	}
+
+	public Booking getBooking() {
+		return booking;
+	}
+
+	public void setBooking(Booking booking) {
+		this.booking = booking;
+	}
+
+	public Bus getBus() {
+		return bus;
+	}
+
+	public void setBus(Bus bus) {
+		this.bus = bus;
+	}
+
+	
 }

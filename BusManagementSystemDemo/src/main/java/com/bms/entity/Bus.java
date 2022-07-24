@@ -32,8 +32,8 @@ public class Bus {
 	LocalTime arrivalTime;
 	LocalTime departureTime;
 
-	@OneToOne(mappedBy = "booking")
-	Booking booking;
+	@OneToMany(mappedBy = "booking")
+	List<Booking> bookings;
 	
 	@OneToMany(mappedBy = "bus")
 	List<Passenger> passengers;
@@ -41,4 +41,86 @@ public class Bus {
 	@ManyToOne
 	@JoinColumn(name = "routeId")
 	Route route;
+
+	public int getBusId() {
+		return busId;
+	}
+
+	public void setBusId(int busId) {
+		this.busId = busId;
+	}
+
+	public String getBusNo() {
+		return busNo;
+	}
+
+	public void setBusNo(String busNo) {
+		this.busNo = busNo;
+	}
+
+	public BusType getBustype() {
+		return bustype;
+	}
+
+	public void setBustype(BusType bustype) {
+		this.bustype = bustype;
+	}
+
+	public double getBusFare() {
+		return busFare;
+	}
+
+	public void setBusFare(double busFare) {
+		this.busFare = busFare;
+	}
+
+	public int getSeatsBooked() {
+		return seatsBooked;
+	}
+
+	public void setSeatsBooked(int seatsBooked) {
+		this.seatsBooked = seatsBooked;
+	}
+
+	public LocalTime getArrivalTime() {
+		return arrivalTime;
+	}
+
+	public void setArrivalTime(LocalTime arrivalTime) {
+		this.arrivalTime = arrivalTime;
+	}
+
+	public LocalTime getDepartureTime() {
+		return departureTime;
+	}
+
+	public void setDepartureTime(LocalTime departureTime) {
+		this.departureTime = departureTime;
+	}
+
+	public List<Booking> getBookings() {
+		return bookings;
+	}
+
+	public void setBookings(List<Booking> bookings) {
+		this.bookings = bookings;
+	}
+
+	public List<Passenger> getPassengers() {
+		return passengers;
+	}
+
+	public void setPassengers(List<Passenger> passengers) {
+		this.passengers = passengers;
+	}
+
+	public Route getRoute() {
+		return route;
+	}
+
+	public void setRoute(Route route) {
+		this.route = route;
+	}
+	
+	
 }

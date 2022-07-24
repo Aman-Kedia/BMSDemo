@@ -35,8 +35,74 @@ public class Booking {
 	@OneToMany(mappedBy = "passenger")
 	List<Passenger> passengers;
 	
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "busId")
 	Bus bus;
+
+	public int getBookingId() {
+		return bookingId;
+	}
+
+	public void setBookingId(int bookingId) {
+		this.bookingId = bookingId;
+	}
+
+	public double getBookingFare() {
+		return bookingFare;
+	}
+
+	public void setBookingFare(double bookingFare) {
+		this.bookingFare = bookingFare;
+	}
+
+	public LocalDate getBookingDate() {
+		return bookingDate;
+	}
+
+	public void setBookingDate(LocalDate bookingDate) {
+		this.bookingDate = bookingDate;
+	}
+
+	public boolean isBookingStatus() {
+		return bookingStatus;
+	}
+
+	public void setBookingStatus(boolean bookingStatus) {
+		this.bookingStatus = bookingStatus;
+	}
+
+	public int getNoOfPassengers() {
+		return noOfPassengers;
+	}
+
+	public void setNoOfPassengers(int noOfPassengers) {
+		this.noOfPassengers = noOfPassengers;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public List<Passenger> getPassengers() {
+		return passengers;
+	}
+
+	public void setPassengers(List<Passenger> passengers) {
+		this.passengers = passengers;
+	}
+
+	public Bus getBus() {
+		return bus;
+	}
+
+	public void setBus(Bus bus) {
+		this.bus = bus;
+	}
+	
+	
 	
 }

@@ -14,7 +14,7 @@ public interface UserDao {
 
 	User addOrUpdateAdmin(User user);
 
-	List<Booking> viewPreviousBookings();
+	List<Booking> viewAllPreviousBookings();
 
 	boolean login(String emailId, String password);
 }

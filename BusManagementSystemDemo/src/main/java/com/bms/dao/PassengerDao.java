@@ -5,9 +5,9 @@ import java.util.List;
 import com.bms.entity.Passenger;
 
 public interface PassengerDao {
-	void addPassenger(Passenger passenger);
+	void addPassenger(Passenger passenger);			//return type passenger
 
-	List<Passenger> findPassengersByBookingId(int bookingId);
+	List<Passenger> findAllPassengersByBookingId(int bookingId);
 
-	List<Passenger> findPassengersByBusId(int busId);
+	List<Passenger> findAllPassengersByBusId(int busId);
 }

@@ -16,7 +16,7 @@
 
 	<mvc:annotation-driven />
 
-	<context:component-scan base-package="com.lti"></context:component-scan>
+	<context:component-scan base-package="com.bms"></context:component-scan>
 
 	<bean id="transactionManager"
 		class="org.springframework.orm.jpa.JpaTransactionManager">
@@ -26,7 +26,7 @@
 	<bean id="myEmf"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="packagesToScan" value="com.lti.entity" />
+		<property name="packagesToScan" value="com.bms.entity" />
 		<property name="jpaVendorAdapter">
 			<bean
 				class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
