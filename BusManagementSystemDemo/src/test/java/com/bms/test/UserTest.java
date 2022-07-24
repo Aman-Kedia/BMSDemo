@@ -10,12 +10,13 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.bms.dao.UserDao;
+import com.bms.dao.UserDaoImpl;
 import com.bms.entity.GenderType;
 import com.bms.entity.User;
 
 public class UserTest {
 
-	UserDao dao;
+	UserDao dao = new UserDaoImpl();
 	
 	@Before
     public void initialize() {

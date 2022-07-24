@@ -10,7 +10,7 @@ public interface BookingDao {
 
 	Booking findBookingByBookingId(int bookingId);
 
-	Passenger findPassengerByBookingId(int bookingId);
+	List<Passenger> findAllPassengersByBookingId(int bookingId);
 
 	List<Booking> findAllBookingsByBusId(int BusId);
 
