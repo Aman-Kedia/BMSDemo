@@ -1,5 +1,6 @@
 package com.bms.dao;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import com.bms.entity.Booking;
@@ -12,7 +13,7 @@ public interface BookingDao {
 
 	List<Passenger> findAllPassengersByBookingId(int bookingId);
 
-	List<Booking> findAllBookingsByBusId(int BusId);
+	List<Booking> findAllBookingsByBusId(int BusId, LocalDate travelDate);
 
 	Booking cancelBooking(int BookingId);		//return type booking
 }

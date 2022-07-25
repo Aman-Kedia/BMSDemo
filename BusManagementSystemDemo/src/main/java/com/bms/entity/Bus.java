@@ -1,6 +1,5 @@
 package com.bms.entity;
 
-import java.time.LocalTime;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -11,7 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -29,8 +27,12 @@ public class Bus {
 
 	@Column(columnDefinition = "int default 0")
 	int seatsBooked;
-	LocalTime arrivalTime;
-	LocalTime departureTime;
+	
+	@Column(length = 5)
+	String arrivalTime;
+	
+	@Column(length = 5)
+	String departureTime;
 
 	@OneToMany(mappedBy = "bus")
 	List<Booking> bookings;
@@ -82,19 +84,19 @@ public class Bus {
 		this.seatsBooked = seatsBooked;
 	}
 
-	public LocalTime getArrivalTime() {
+	public String getArrivalTime() {
 		return arrivalTime;
 	}
 
-	public void setArrivalTime(LocalTime arrivalTime) {
+	public void setArrivalTime(String arrivalTime) {
 		this.arrivalTime = arrivalTime;
 	}
 
-	public LocalTime getDepartureTime() {
+	public String getDepartureTime() {
 		return departureTime;
 	}
 
-	public void setDepartureTime(LocalTime departureTime) {
+	public void setDepartureTime(String departureTime) {
 		this.departureTime = departureTime;
 	}
 

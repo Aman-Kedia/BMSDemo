@@ -2,9 +2,11 @@ package com.bms.dao;
 
 import java.util.List;
 
+import javax.management.Query;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.transaction.Transactional;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
 
 import org.springframework.stereotype.Component;
 
@@ -14,22 +16,32 @@ import com.bms.entity.Route;
 @Component
 public class RouteDaoImpl implements RouteDao {
 	
-	@PersistenceContext
-	EntityManager em;
+	EntityManagerFactory emf;
+    EntityManager em; // persistence context
+    EntityTransaction tx;
+    Query qry;
 
-	@Transactional
-	public Route addOrUpdateRoute(Route route) {
-		return em.merge(route);
-	}
-
-	public Route findRouteByRouteId(int routeId) {
-		return em.find(Route.class, routeId);
-	}
-
-	public List<Bus> findAllBusesByRouteId(int routeId) {
-		Route route = findRouteByRouteId(routeId);
-		List<Bus> buses = route.getBus();
-		return buses;
-	}
+    public RouteDaoImpl() {
+        emf = Persistence.createEntityManagerFactory("oracle-pu");
+        em = emf.createEntityManager();
+    }
+ 
+    public Route addOrUpdateRoute(Route route) {
+        tx = em.getTransaction();
+        tx.begin();
+        Route routePersisted = em.merge(route);
+        tx.commit();
+        return routePersisted;
+    }
+ 
+    public Route findRouteByRouteId(int routeId) {
+        return em.find(Route.class, routeId);
+    }
+ 
+    public List<Bus> findAllBusesByRouteId(int routeId) {
+        Route route = findRouteByRouteId(routeId);
+        List<Bus> buses = route.getBus();
+        return buses;
+    }
 
 }

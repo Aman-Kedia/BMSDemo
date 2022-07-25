@@ -8,5 +8,8 @@ import com.bms.entity.Route;
 public interface RouteDao {
 	Route addOrUpdateRoute(Route route);
 
+	Route findRouteByRouteId(int routeId);
+	
 	List<Bus> findAllBusesByRouteId(int routeId);
+
 }

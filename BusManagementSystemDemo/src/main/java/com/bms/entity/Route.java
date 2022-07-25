@@ -20,7 +20,7 @@ public class Route {
 	String origin;
 	String destination;
 
-	@OneToMany(mappedBy = "busId")
+	@OneToMany(mappedBy = "route")
 	List<Bus> bus;
 
 	public int getRouteId() {
