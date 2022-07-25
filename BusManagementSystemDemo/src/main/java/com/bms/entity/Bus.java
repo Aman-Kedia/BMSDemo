@@ -32,7 +32,7 @@ public class Bus {
 	LocalTime arrivalTime;
 	LocalTime departureTime;
 
-	@OneToMany(mappedBy = "booking")
+	@OneToMany(mappedBy = "bus")
 	List<Booking> bookings;
 	
 	@OneToMany(mappedBy = "bus")

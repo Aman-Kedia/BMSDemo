@@ -3,6 +3,9 @@ package com.bms.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
@@ -15,12 +18,22 @@ import com.bms.entity.User;
 @Component
 public class UserDaoImpl implements UserDao {
 
-	@PersistenceContext
+	EntityManagerFactory emf;
 	EntityManager em;
+	EntityTransaction tx;
+	
+	public UserDaoImpl() {
+		emf = Persistence.createEntityManagerFactory("oracle-pu");
+		em = emf.createEntityManager();
+	}
 	
 	@Transactional
 	public User addOrUpdateUser(User user) {
-		return em.merge(user);
+		tx = em.getTransaction();
+		tx.begin();
+		User userPersisted =  em.merge(user);
+		tx.commit();
+		return userPersisted;
 	}
 
 	public User findUserByUserId(int userId) {

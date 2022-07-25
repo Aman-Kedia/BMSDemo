@@ -16,13 +16,13 @@ import com.bms.entity.User;
 
 public class UserTest {
 
-	UserDao dao = new UserDaoImpl();
+	UserDao userDao = new UserDaoImpl();
 	
-	@Before
-    public void initialize() {
-        ApplicationContext context = new ClassPathXmlApplicationContext("");
-        dao = context.getBean(UserDao.class);
-    }
+//	@Before
+//    public void initialize() {
+////        ApplicationContext context = new ClassPathXmlApplicationContext("per");
+//        userDao = context.getBean(UserDao.class);
+//    }
 	
 	@Test
 	public void addOrUpdateUserTest() {
@@ -37,7 +37,7 @@ public class UserTest {
         user.setWalletBalance(100);
         user.setUserPassword("John@123");
 
-        User savedUser = dao.addOrUpdateUser(user);
+        User savedUser = userDao.addOrUpdateUser(user);
         assertNotNull(savedUser);
 	}
 

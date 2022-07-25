@@ -32,7 +32,7 @@ public class Booking {
 	@JoinColumn(name = "userId")
 	User user;
 	
-	@OneToMany(mappedBy = "passenger")
+	@OneToMany(mappedBy = "booking")
 	List<Passenger> passengers;
 	
 	@ManyToOne
