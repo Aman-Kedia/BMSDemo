@@ -44,19 +44,22 @@ public class BookingDaoImpl implements BookingDao {
 		return em.find(Booking.class, bookingId);
 	}
 
+	//tested
 	public List<Passenger> findAllPassengersByBookingId(int bookingId) {
 		Booking bk = findBookingByBookingId(bookingId);
 		List<Passenger> passengers = bk.getPassengers();
 		return passengers;
 	}
 
-	public List<Booking> findAllBookingsByBusId(int BusId, LocalDate travelDate) {
+	//tested
+	public List<Booking> findAllBookingsByBusId(int BusId) {
 		BusDao dao = new BusDaoImpl();
         Bus bus = dao.findBusByBusId(BusId);
         List<Booking> bookings = bus.getBookings();
         return bookings;
 	}
 
+	//tested
 	public Booking cancelBooking(int BookingId) {
 		Booking bk = findBookingByBookingId(BookingId);
 		bk.setBookingStatus(false);

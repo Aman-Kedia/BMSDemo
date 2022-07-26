@@ -41,6 +41,7 @@ public class BusDaoImpl implements BusDao {
 		return em.find(Bus.class, busId);
 	}
 
+	//tested
 	public List<Passenger> findAllPassengersByBusId(int busId) {
 		Bus bus = findBusByBusId(busId);
 		List<Passenger> passengers = bus.getPassengers();

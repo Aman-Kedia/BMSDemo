@@ -9,29 +9,34 @@ import org.junit.Test;
 
 import com.bms.dao.BookingDao;
 import com.bms.dao.BookingDaoImpl;
+import com.bms.dao.BusDao;
+import com.bms.dao.BusDaoImpl;
 import com.bms.dao.PassengerDao;
 import com.bms.dao.PassengerDaoImpl;
 import com.bms.entity.Booking;
+import com.bms.entity.Bus;
 import com.bms.entity.Passenger;
 
 public class PassengerTest {
 
 	PassengerDao passengerDao = new PassengerDaoImpl();
 	BookingDao bookingDao = new BookingDaoImpl();
+	BusDao busDao = new BusDaoImpl();
 
 	@Test
 	public void addPassengerTest() {
 		Passenger passenger = new Passenger();
 		Booking booking = bookingDao.findBookingByBookingId(2002);
-
-		passenger.setFirstName("Jane");
-		passenger.setLastName("Fonda");
-		passenger.setDateOfBirth(LocalDate.of(1986, 4, 5));
-		passenger.setPhoneNo("9846843168");
-		passenger.setSeatNo("4");
+		Bus bus = busDao.findBusByBusId(4021);
+		passenger.setFirstName("Ian");
+		passenger.setLastName("Kan");
+		passenger.setDateOfBirth(LocalDate.of(2002, 7, 9));
+		passenger.setPhoneNo("8438468138");
+		passenger.setSeatNo("2");
 		passenger.setTravelDate(LocalDate.of(2022, 8, 16));
 		passenger.setBooking(booking);
-		passenger.setEmailId("jane@gmail.com");
+		passenger.setEmailId("ian@gmail.com");
+		passenger.setBus(bus);
 		Passenger savedPassenger = passengerDao.addPassenger(passenger);
 
 		assertNotNull(savedPassenger);
@@ -46,12 +51,12 @@ public class PassengerTest {
 
 	}
 
-//	@Test
-//	public void findAllPassengersByBusId() {
-//		List<Passenger> allPassengersByBusId = passengerDao.findAllPassengersByBusId(201);
-//		for (Passenger passenger : allPassengersByBusId) {
-//			System.out.println(passenger.getEmailId());
-//		}
-//	}
+	@Test
+	public void findAllPassengersByBusId() {
+		List<Passenger> allPassengersByBusId = passengerDao.findAllPassengersByBusId(4021);
+		for (Passenger passenger : allPassengersByBusId) {
+			System.out.println(passenger.getEmailId());
+		}
+	}
 
 }

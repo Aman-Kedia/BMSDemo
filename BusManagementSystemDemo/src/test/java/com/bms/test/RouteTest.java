@@ -18,8 +18,8 @@ public class RouteTest {
 	@Test
 	public void addOrUpdateRouteTest() {
 		Route route = new Route();
-		route.setOrigin("Mumbai");
-		route.setDestination("Pune");
+		route.setOrigin("Mumabi");
+		route.setDestination("Delhi");
 
 		assertNotNull(dao.addOrUpdateRoute(route));
 	}
@@ -32,10 +32,10 @@ public class RouteTest {
 
 	@Test
 	public void findAllBusesByRouteId() {
-		Route route = dao.findRouteByRouteId(5001);
+		Route route = dao.findRouteByRouteId(5021);
 		List<Bus> buses = route.getBus();
 		for (Bus b : buses) {
-			System.out.println(b.getBusId() + ' ' + b.getBusNo());
+			System.out.println(b.getBusId() + " " + b.getBusNo());
 		}
 	}
 

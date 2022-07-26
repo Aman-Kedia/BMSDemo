@@ -43,6 +43,7 @@ public class PassengerDaoImpl implements PassengerDao {
         return qry.getResultList();
 	}
 
+	//tested
 	public List<Passenger> findAllPassengersByBusId(int busId) {
 		BusDao dao = new BusDaoImpl();
 		Bus bus = dao.findBusByBusId(busId);

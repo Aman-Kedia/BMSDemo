@@ -9,22 +9,26 @@ import org.junit.Test;
 
 import com.bms.dao.BookingDao;
 import com.bms.dao.BookingDaoImpl;
+import com.bms.dao.BusDao;
+import com.bms.dao.BusDaoImpl;
 import com.bms.entity.Booking;
+import com.bms.entity.Bus;
 import com.bms.entity.Passenger;
 
 public class BookingTest {
 
 	BookingDao dao = new BookingDaoImpl();
+	BusDao busDao = new BusDaoImpl();
 	
 	@Test
 	public void addBookingTest() {
 		Booking booking = new Booking();
-		
-		booking.setBookingFare(50.0);
-		booking.setBookingDate(LocalDate.of(2022,07,20));
+		Bus bus = busDao.findBusByBusId(4021);
+		booking.setBookingFare(100.0);
+		booking.setBookingDate(LocalDate.of(2022,07,26));
 		booking.setBookingStatus(true);
-		booking.setNoOfPassengers(1);
-		
+		booking.setNoOfPassengers(2);
+		booking.setBus(bus);
 		Booking savedBooking = dao.addBooking(booking);
 		
 		assertNotNull(savedBooking);
@@ -48,7 +52,12 @@ public class BookingTest {
 	
 	@Test
 	public void findAllBookingsByBusId() {
+		List<Booking> bookings = dao.findAllBookingsByBusId(4021);
+		assertNotEquals(0, bookings.size());
 		
+		for(Booking b:bookings) {
+			System.out.println(b.getBookingId() + " " + b.getNoOfPassengers());
+		}
 	}
 	
 	@Test

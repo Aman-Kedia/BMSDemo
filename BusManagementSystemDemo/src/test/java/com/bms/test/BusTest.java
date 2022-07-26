@@ -25,14 +25,14 @@ public class BusTest {
 	public void addOrUpdateBusTest() {
 		Bus bus = new Bus();
 
-		bus.setBusNo("RJ05EY1234");
-		bus.setBustype(BusType.AC);
-		bus.setBusFare(1200.23);
-		bus.setArrivalTime("14:00");
-		bus.setDepartureTime("10:00");
-		bus.setSeatsBooked(12);
+		bus.setBusNo("MH02TC1684");
+		bus.setBustype(BusType.Non_AC);
+		bus.setBusFare(900.67);
+		bus.setArrivalTime("18:00");
+		bus.setDepartureTime("13:00");
+		bus.setSeatsBooked(3);
 		
-		Route route = routeDao.findRouteByRouteId(5002);
+		Route route = routeDao.findRouteByRouteId(5021);
 		
 		bus.setRoute(route);
 
@@ -48,7 +48,7 @@ public class BusTest {
 
   @Test
   public void findAllPassengersByBusIdTest() {
-      List<Passenger> passengers = dao.findAllPassengersByBusId(4001);
+      List<Passenger> passengers = dao.findAllPassengersByBusId(4021);
       for(Passenger p:passengers) {
           System.out.println(p.getPassengerId()+' '+p.getFirstName()+' '+p.getLastName());
       }

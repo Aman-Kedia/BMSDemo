@@ -21,11 +21,13 @@ public class RouteDaoImpl implements RouteDao {
     EntityTransaction tx;
     Query qry;
 
+
     public RouteDaoImpl() {
         emf = Persistence.createEntityManagerFactory("oracle-pu");
         em = emf.createEntityManager();
     }
- 
+
+    //tested
     public Route addOrUpdateRoute(Route route) {
         tx = em.getTransaction();
         tx.begin();
@@ -34,10 +36,12 @@ public class RouteDaoImpl implements RouteDao {
         return routePersisted;
     }
  
+    //tested
     public Route findRouteByRouteId(int routeId) {
         return em.find(Route.class, routeId);
     }
  
+    //tested
     public List<Bus> findAllBusesByRouteId(int routeId) {
         Route route = findRouteByRouteId(routeId);
         List<Bus> buses = route.getBus();
