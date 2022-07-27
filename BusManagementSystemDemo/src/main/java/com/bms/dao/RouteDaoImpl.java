@@ -48,4 +48,9 @@ public class RouteDaoImpl implements RouteDao {
         return buses;
     }
 
+	public Route findRoteIdByOriginDestination(String orgin, String destination) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

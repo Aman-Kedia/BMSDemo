@@ -25,8 +25,8 @@ public class Bus {
 	BusType bustype;
 	double busFare;
 
-	@Column(columnDefinition = "int default 0")
-	int seatsBooked;
+	@Column(columnDefinition = "int default 50")
+	int capacity;
 	
 	@Column(length = 5)
 	String arrivalTime;
@@ -76,12 +76,12 @@ public class Bus {
 		this.busFare = busFare;
 	}
 
-	public int getSeatsBooked() {
-		return seatsBooked;
+	public int getCapacity() {
+		return capacity;
 	}
 
-	public void setSeatsBooked(int seatsBooked) {
-		this.seatsBooked = seatsBooked;
+	public void setCapacity(int capacity) {
+		this.capacity = capacity;
 	}
 
 	public String getArrivalTime() {

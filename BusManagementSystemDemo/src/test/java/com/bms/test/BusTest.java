@@ -30,7 +30,7 @@ public class BusTest {
 		bus.setBusFare(900.67);
 		bus.setArrivalTime("18:00");
 		bus.setDepartureTime("13:00");
-		bus.setSeatsBooked(3);
+		bus.setCapacity(3);
 		
 		Route route = routeDao.findRouteByRouteId(5021);
 		

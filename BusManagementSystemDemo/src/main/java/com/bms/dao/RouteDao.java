@@ -11,5 +11,6 @@ public interface RouteDao {
 	Route findRouteByRouteId(int routeId);
 	
 	List<Bus> findAllBusesByRouteId(int routeId);
-
+	
+	Route findRoteIdByOriginDestination(String orgin, String destination);
 }
