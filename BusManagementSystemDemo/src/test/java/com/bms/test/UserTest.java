@@ -32,7 +32,7 @@ public class UserTest {
 		user.setDateOfBirth(LocalDate.of(1985, 2, 12));
 		user.setPhoneNo("9879879871");
 		user.setGender(GenderType.Male);
-		user.setEmail("john@gmail.com");
+		user.setEmail("john12@gmail.com");
 		user.setAdmin(true);
 		user.setWalletBalance(100);
 		user.setUserPassword("John@123");

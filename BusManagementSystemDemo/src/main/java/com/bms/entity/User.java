@@ -13,7 +13,10 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 
 @Entity
 @Table(name = "bms_user")
@@ -26,7 +29,9 @@ public class User {
 
 	String firstName;
 	String lastName;
-	LocalDate dateOfBirth;
+	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private LocalDate dateOfBirth;
 	String phoneNo;
 	GenderType gender;
 

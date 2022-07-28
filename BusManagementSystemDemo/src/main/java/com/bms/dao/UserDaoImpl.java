@@ -1,5 +1,9 @@
 package com.bms.dao;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -31,6 +35,7 @@ public class UserDaoImpl implements UserDao {
 	public User addOrUpdateUser(User user) {
 		tx = em.getTransaction();
 		tx.begin();
+		user.setDateOfBirth(user.getDateOfBirth());
 		User persistedUser =  em.merge(user);
 		tx.commit();
 		return persistedUser;
